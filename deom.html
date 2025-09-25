@@ -5,33 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>반응형 iFrame 임베드</title>
     <style>
-        /* 기본 스타일 초기화 및 전체 높이 설정 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%; /* html, body가 뷰포트 높이를 차지하도록 */
-        }
+    /* 기본 스타일 초기화 및 전체 높이 설정 */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%; 
+    }
 
-        /* iFrame 컨테이너 스타일 */
-        .iframe-container {
-            /* 100vh 높이 설정 */
-            height: 100vh;
-            /* 가로 중앙 정렬을 위한 설정 */
-            margin-left: auto;
-            margin-right: auto;
-            /* 기본 너비 100% */
-            width: 100%;
-            /* 요청하신 최대 너비 400px 설정 */
-            max-width: 400px; 
-            
-            /* (선택 사항) 배경색을 넣어 래퍼 영역 확인 가능 */
-            /* background-color: #f0f0f0; */ 
-        }
+    /* iFrame 컨테이너 스타일 */
+    .iframe-container {
+        /* 높이: 뷰포트 높이 전체 (100vh)를 사용합니다. */
+        height: 100vh;
+        /* 가로 중앙 정렬을 위한 설정 */
+        margin-left: auto;
+        margin-right: auto;
+        /* 기본 너비 100% */
+        width: 100%;
+        /* 요청하신 최대 너비 400px 설정 */
+        max-width: 400px; 
+        
+        /* iFrame을 절대 위치로 배치하기 위한 기준 설정 */
+        position: relative; 
+        /* iFrame이 컨테이너(100vh)를 벗어난 부분(하단 50px)을 숨깁니다. */
+        overflow: hidden; 
+    }
 
-        /* 임베드 iframe 자체의 스타일 */
-        .iframe-container iframe {
-            display: block; /* 가끔 발생하는 하단 여백 제거 */
-        }
+    /* 임베드 iframe 자체의 스타일 */
+    .iframe-container iframe {
+        /* 래퍼 안에서 절대 위치로 배치 */
+        position: absolute;
+        /* 래퍼의 너비를 100%로 채웁니다. */
+        width: 100%; 
+        /* 래퍼 높이(100vh)보다 50px 더 크게 설정하여 하단 50px이 밖으로 나가도록 합니다. */
+        height: calc(100% + 50px); 
+        /* 상단에 딱 붙입니다. */
+        top: 0;
+        /* 스크롤 제거를 위해 명시적으로 설정 (iframe 태그에 allowfullscreen이 있으므로 스크롤바가 생길 수 있어 CSS로 강제합니다.) */
+        overflow: hidden;
+        
+        /* 기타 설정 (선택 사항) */
+        display: block; 
+    }
     </style>
 </head>
 <body>
