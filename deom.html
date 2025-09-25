@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 iFrame 임베드</title>
+    <style>
+        /* 기본 스타일 초기화 및 전체 높이 설정 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* html, body가 뷰포트 높이를 차지하도록 */
+        }
 
+        /* iFrame 컨테이너 스타일 */
+        .iframe-container {
+            /* 100vh 높이 설정 */
+            height: 100vh;
+            /* 가로 중앙 정렬을 위한 설정 */
+            margin-left: auto;
+            margin-right: auto;
+            /* 기본 너비 100% */
+            width: 100%;
+            /* 요청하신 최대 너비 400px 설정 */
+            max-width: 400px; 
+            
+            /* (선택 사항) 배경색을 넣어 래퍼 영역 확인 가능 */
+            /* background-color: #f0f0f0; */ 
+        }
+
+        /* 임베드 iframe 자체의 스타일 */
+        .iframe-container iframe {
+            display: block; /* 가끔 발생하는 하단 여백 제거 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="iframe-container">
+        <iframe 
+            style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+            width="100%" 
+            height="100%" 
+            src="https://embed.figma.com/proto/E294RQAxkZEQ4FQbRrvglk/Live-UI?page-id=1368%3A30170&node-id=2001-7420&viewport=-1231%2C-165%2C0.51&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2001%3A7420&show-proto-sidebar=1&embed-host=share" 
+            allowfullscreen
+        ></iframe>
+    </div>
+
+</body>
+</html>
